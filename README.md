@@ -1,69 +1,56 @@
-# 7b) Implemenatation of go-back-n protocol - Selective repeat
+# EXPT.NO.7b-IMPLEMENTATION-OF-GO-BACK-N-PROTOCOL-SELECTIVE-REPEAT
+# AIM:
+To write and execute a program for Go-Back-N protocol-Selective Repeat.
+# EQUIPMENTS REQUIRED:
+Personal Computer Turbo C Compiler
+# PROCEDURE:
+8.	Connect two computers in Wired/Wireless LAN.
+9.	Make sure that two computers are in one network and could able to ping each other.
+10.	In the codeblocker open new c file and type the program.
+11.	In the menu choose->Project->Properties->Project Build options->Linker settings->Add netproto and pthread.
+12.	Execute the program in both server and client.
+13.	Enter the IP address of the remote machine, port address of both local & remote machine and error rate.
+14.	Choose the file and verify the go back protocol operation.
 
-📡 Implementation of Go-Back-N Protocol – Selective Repeat
+# PROGRAM:
+```
+#include<stdio.h> void main()
+{
 
-🎯 Aim
+int i,j,n;
+printf("GO BACK N ARQ\n");
+//printf("Entermessage in format\n"); printf("Enter number of frame : "); scanf("%d",&n);
+char frame[n][10];
 
-To write and execute a program for the Go-Back-N protocol using the Selective Repeat technique.
-
-🛠️ Equipments Required
-
-• 	Personal Computer
-
-• 	Turbo C Compiler
-
-📋 Procedure
-1. 	Connect two computers in a Wired/Wireless LAN.
-2. 	Ensure both computers are on the same network and can ping each other.
-3. 	Open a new C file in Code::Blocks or any C IDE and type the program.
-4. 	Navigate to:
-Project -> Properties -> Project Build Options -> Linker Settings
-Add: netproto and pthread
-5. 	Execute the program on both server and client machines.
-6. 	Enter the following:
-• 	IP address of the remote machine
-• 	Port address of both local and remote machines
-• 	Error rate
-7. 	Choose the file and verify the Go-Back-N protocol operation.
-
-💻 Program
-
-#include <stdio.h>
-
-void main() {
-    
-    int i, j, n;
-    printf("GO BACK N ARQ\n");
-    printf("Enter number of frames: ");
-    scanf("%d", &n);
-
-    char frame[n][10];
-
-    for (i = 1; i <= n; i++) {
-        printf("Content for frame %d: ", i);
-        scanf("%s", frame[i]);
-    }
-
-    printf("Enter frame number with no ACK: ");
-    scanf("%d", &j);
-
-    for (i = 1; i <= n; i++) {
-        if (i != j)
-            printf("\nSending frame %d\nFRAME ACKNOWLEDGED...\n", i);
-    }
-
-    if (j <= n) {
-        printf("No Acknowledgement for frame %d...\n", j);
-        printf("Resending... Content from frame %d: %s\n\n", j, frame[j]);
-    }
-
-    printf("\nSending frame %d\nFRAME ACKNOWLEDGED...\n", j);
-    printf("\n\nALL FRAMES RECEIVED SUCCESSFULLY\n\n");
+for(i=1;i<=n;i++)
+{
+printf("Content for frame %d :",i); scanf("%s",&frame[i]);
 }
+int s=1;
+//while(j<=n){
+printf("Enter frame number with no ACK :"); scanf("%d",&j);
+for(i=1;i<=n;i++)
+{
+if(i!=j)
+printf("\n Sending frame %d \n FRAME ACKNOWLEDGED.	\n",i);
+//else
+//printf("\n Frame not Acknowledeged.	\n");
+ 
+}
+if(j<=n)
+{
+printf("No Acknowlegement for frame %d... \n",j); printf("Resending... Content from frame %d :%s\n\n",j,frame[j]);
 
-🖥️ Sample Output
-<img width="1236" height="1108" alt="code block 2" src="https://github.com/user-attachments/assets/49621d52-6eda-4d7e-85e0-49a6ad75a1d6" />
+}
+printf("\n Sending frame %d \n FRAME ACKNOWLEDGED.	\n",j);
+//}
 
-✅ Result
+printf("\n\nALL FRAME RECIEVED SUCCESSFULLY\n\n");
+}
+```
+OUTPUT:
+![cn2](https://github.com/user-attachments/assets/8e6dcf6d-4cc2-48d2-9de1-96fbef91dc52)
 
-Thus, the Go-Back-N protocol using Selective Repeat was successfully implemented and verified.
+---
+# RESULT:
+Thus the Go-Back-N protocol- Selective Repeat was implemented and the output is verified successfully.
